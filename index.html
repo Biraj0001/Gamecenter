@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameSphere</title>
+    <link rel="icon"
+    href="./img/GameSphere .png"
+    type="image/x-icon">
+</head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Acme&family=Alegreya+Sans+SC:wght@300&family=Amatic+SC&family=Catamaran&family=Cinzel:wght@400;700&family=Comfortaa:wght@300;500&family=Dela+Gothic+One&family=Electrolize&family=Lunasima&family=Martian+Mono:wght@100&family=Noto+Sans&family=Nunito:wght@200&family=Open+Sans:ital,wght@1,500&family=Orbitron&family=PT+Sans:wght@700&family=Quantico&family=Rajdhani:wght@300&family=Righteous&family=Roboto:wght@100&family=Rubik+Bubbles&family=Satisfy&display=swap" rel="stylesheet">
+<body>
+    <nav>
+        <div class="navbar">
+            <div class="left">
+                <li><img src="./img/GameSphere .png" alt="" height="50px" width="60px">GameSphere</li>
+                <li class="home">Home</li>
+                <li class="games">Games</li>
+            </div>
+        </div>
+    </nav>
+
+    <div class="greetings">
+        <div class="level1">
+        <h1>Hello!</h1>
+        <h2>Anonymous User.</h2>
+        <h1>Welcome to GameSphere!</h1>
+        </div>
+        <div class="level2">
+            Step into the exciting world of gaming with GameSphere, your one-stop destination for fun and entertainment! We are thrilled to have you here as part of our growing gaming community. Whether you are a seasoned gamer or new to the gaming universe, GameSphere offers a fantastic array of games that will surely captivate and challenge you.
+
+            At the moment, we have two simple yet addictive games ready for you to dive into. These games have been carefully selected to cater to a wide range of interests and skill levels. Whether you're looking for a quick casual game to pass the time or a more immersive experience to test your gaming prowess, we've got you covered.
+        </div>
+        <div class="level3">
+            <button class="explore">Explore Games!</button>
+            <br>
+          <h1><strong>Game on!</strong> </h1> 
+            <h3><strong>The GameSphere Owner</strong> </h3> 
+            
+        </div>
+    </div>
+    <div class="game-container">
+
+        <div class="game-head">
+            <h1>Available Games</h1>
+        </div>
+       <div class="container">
+        <li>
+            <a href="guessthenumber.html" target="_blank">
+                <div class="one-left">Guess The Number!</div>
+                <div class="one-right"><img src="./img/GuessTheNumber.png" alt="" width="140px" height="140px"></div>
+            </a>
+        </li>
+        <li>
+            <a href="rollthedice.html" target="_blank">
+                <div class="one-left">Roll The Dice!</div>
+                <div class="one-right"><img src="./img/Roll_The_Dice.png" alt="" width="140px" height="140px"></div>
+            </a>
+        </li>
+       </div>
+    </div>
+</body>
+<link rel="stylesheet" href="style.css">
+</html>
+<script src="https://code.jquery.com/jquery-3.6.1.js"integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="crossorigin="anonymous"></script>
+<script>
+        function display(showhome){
+        if(showhome==true){
+        $(".greetings").show();
+        $(".game-container").hide();
+    }
+    else{
+        $(".greetings").hide();
+        $(".game-container").show();
+    }  
+    }
+
+display(true);
+$(".home").click(function(){
+    display(true);
+})
+$(".games").click(function(){
+    display(false);
+})
+$(".explore").click(function(){
+    display(false);
+})
+</script>

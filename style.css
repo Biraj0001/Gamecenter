@@ -1,0 +1,197 @@
+*{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    user-select: none;
+    font-family: 'Electrolize', sans-serif;
+}
+::-webkit-scrollbar{
+    width: 0px;
+}
+body{
+    background-image: url("https://cdnb.artstation.com/p/assets/images/images/038/928/117/large/elya-gonchar-screenshot-1.jpg?1624460800");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.navbar{
+    /* border: 2px solid red; */
+    background-color: rgb(9, 43, 66);
+}
+.left{
+    /* border: 2px solid red; */
+    width: 25%;
+    display: flex;
+    justify-content: space-between;
+}
+.left li{
+    /* border: 2px solid red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 5px;
+    justify-content: space-between;
+    color: rgb(19, 180, 180);
+}
+.left li:nth-child(2):hover{
+    background: linear-gradient(to right,rgba(19, 180, 180, 0.774),rgba(19, 180, 180, 0.253),rgba(19, 180, 180, 0.205),rgba(19, 180, 180, 0.534));
+    color: aliceblue;
+    cursor: pointer;
+}
+.left li:nth-child(3):hover{
+    background: linear-gradient(to right,rgba(19, 180, 180, 0.774),rgba(19, 180, 180, 0.253),rgba(19, 180, 180, 0.205),rgba(19, 180, 180, 0.534));
+    color: aliceblue;
+    cursor: pointer;
+}
+.greetings{
+    /* border: 2px solid red; */
+    padding: 10px 10px;
+    width: 80%;
+    margin: auto;
+    background-color: rgba(21, 53, 75, 0.473);
+    color: white;
+    margin-top: 20px;
+    font-size: large;
+}
+.level1{
+    /* color: rgb(255, 0, 255); */
+    color: rgb(255, 196, 0);
+    /* color: transparent; */
+    font-weight: bold;
+    display: flex;
+    align-items:end;
+    flex-flow: column;
+    font-size: x-large;
+}
+.level2{
+    color: rgb(255, 196, 0);
+    background-color: rgba(0, 0, 0, 0.479);
+    padding: 10px 10px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    /* animation: example infinite step-start 100ms linear; */
+    animation-name: example;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    font-size: large;
+}
+.level3{
+    font-size: large;
+    /* background-color: rgba(255, 255, 255, 0.479);
+    color: rgb(9, 43, 66); */
+    color: rgb(255, 196, 0);
+    background-color: rgba(0, 0, 0, 0.479);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    padding: 10px 10px;
+    animation-name: example;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+}
+/* @keyframes example {
+    from {color: rgb(9, 43, 66);background-color: rgba(55, 82, 107, 0.781);}
+    to {color: rgb(255, 196, 0);background-color: rgba(0, 0, 0, 0.479);}
+  } */
+.game-container{
+    /* border: 2px solid red; */
+    background-color: rgba(113, 6, 201, 0.171);
+    padding: 20px 20px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+}
+.game-head{
+    border: 5px solid rgba(238, 130, 238, 0.377);
+    color: rgba(28, 0, 29, 0.856);
+    padding: 5px 5px;
+    /* border-radius: 10px; */
+    margin-bottom: 20px;
+    font-weight: bolder;
+    text-shadow: 0px 0px 8px rgb(238, 162, 238);
+    
+    background-image: url("https://c4.wallpaperflare.com/wallpaper/696/274/479/gradient-green-blue-violet-wallpaper-preview.jpg");
+}
+.container{
+    border: 5px solid rgb(66, 171, 241);
+    padding: 50px 30px;
+    width: 60vw;
+    border-radius: 20px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
+    background-image: url("https://media.istockphoto.com/id/1171564349/video/retro-land.jpg?s=640x640&k=20&c=UytoK5VuR3nXezFTIryRH6D4mHUE846zUBZhlIJA5cw=");
+    background-image: url("https://img.freepik.com/free-vector/futuristic-technological-wallpaper_79603-1092.jpg");
+    background-image: url("https://static.vecteezy.com/system/resources/thumbnails/010/047/365/original/retro-land-80s-retro-futuristic-sci-fi-seamless-loop-retro-background-animation-low-poly-terrain-retro-1980s-background-and-a-luorescent-visual-background-retro-neon-background-in-80-s-style-free-video.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
+.container li{
+    width: 40%;
+    border: 10px solid rgb(66, 171, 241);
+    border-radius: 20px;
+    padding: 5px 5px;
+    background-color: rgb(66, 171, 241);
+    box-shadow: 0px 0px 20px rgb(0, 0, 0);
+}
+.container li:hover{
+  scale: 1.02;
+  background-color: rgb(255, 240, 29);
+}
+a{
+      display: flex;
+      text-decoration: none;
+      color: yellow;
+      z-index: -2;
+}
+.one-left{
+    /* border: 2px solid red; */
+    padding: 20px 20px;
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: xx-large;
+    background-image: url("https://static.vecteezy.com/system/resources/thumbnails/009/467/976/small/abstract-futuristic-gaming-background-for-offline-twitch-stream-vector.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+}
+.one-right{
+    /* border: 2px solid red; */
+    background-color: white;
+}
+.explore{
+    color: rgb(212, 175, 7);
+    margin: auto;
+    background-color: transparent;
+    margin-top: 10px;
+    padding: 10px 10px;
+    cursor: pointer;
+    border: none;
+    border: 2px solid rgb(255, 208, 1);
+    font-weight: bolder;
+    border-radius: 5px;
+    transition: 0.4s;
+    font-size: large;
+    margin-bottom: 10px;
+}
+.explore:hover{
+    opacity:.8;
+    background-color:rgba(78, 67, 4, 0.733);
+    color: rgb(255, 229, 114);
+    font-weight: bolder;
+    scale: 1.02;
+}
+.explore:active{
+    opacity:.8;
+    background-color: transparent;
+    color: rgb(128, 105, 0);
+    font-weight: bolder;
+    scale: 1.02;
+}

@@ -1,0 +1,166 @@
+*{
+    user-select: none;
+    /* transition: 0.3s; */
+    margin: 0;
+    padding: 0;
+    
+}
+body{
+   /* background-color: rgb(8, 35, 94); */
+   background-image: url(./img/GTN_bg.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.cool{
+    height: 100vh;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-position: center;
+    /* padding: -10?; */
+}
+.level1{
+    font-weight: bolder;
+}
+.container{
+    border: 2px solid white;
+    width: 60%;
+    margin: auto;
+    background-color: rgb(5, 53, 65);
+    background-image: url(./img/GTN_container.jpg);
+     background-size: cover;
+     background-position: center;
+     background-repeat: no-repeat;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    transition: 1s;
+}
+.top{
+    /* border: 2px solid black;  */
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 10px;
+}
+.game-head{
+    border: 5px solid rgba(238, 130, 238, 0.377);
+    color: rgba(28, 0, 29, 0.856);
+    /* text-align: center; */
+    width: 40%;
+    height: 5vh;
+    text-shadow: 0px 0px 8px rgb(238, 162, 238);
+    /* background-color: white; */
+    background-image: url("https://c4.wallpaperflare.com/wallpaper/696/274/479/gradient-green-blue-violet-wallpaper-preview.jpg");
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-bottom: 20px;
+    border-radius: 7px;
+}
+
+.gamearea{
+    /* border: 2px solid red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.left,.right{
+    border: 2px solid white;
+    width:45%;
+}
+.mid{
+    border: 2px solid white;
+    padding:5px 5px;
+    width: 7%;
+    height: 7vh;
+    /* height: 100px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: xx-large;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    font-family: 'Press Start 2P', cursive;
+    text-align: center;
+    /* font-size: 100px; */
+}
+.input-area{
+    /* border: 2px solid red; */
+    display: flex;
+    justify-content: space-between;
+}
+.check{
+    padding: 20px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.inputbox{
+    border: 2px solid white;
+    width: 20%;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    margin-bottom: 10px;
+   background-color: black;
+    /* width: 10px; */
+}
+input{
+    width: 80%;
+    height: 100%;
+    outline: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size:x-large;
+    font-weight: bolder;
+}
+.comment{
+    padding: 20px 20px;
+    display: flex;
+    /* justify-content: center; */
+    /* align-items: center; */
+    flex-direction: column;
+}
+button{
+    background-color: orangered;
+    border: none;
+    color: white;
+    padding: 7px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+button:active{
+    background-color: rgb(255, 175, 146);
+    border: none;
+    color: orangered;
+    padding: 7px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.description{
+    background-color: orangered;
+    border: none;
+    color: white;
+    padding: 7px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.comment div{
+    /* border: 2px solid red; */
+    padding: 5px 5px;
+    margin-bottom: 2px;
+    background-color: rgba(0, 46, 99, 0.534);
+    border-radius: 4px;
+    color: white;
+}

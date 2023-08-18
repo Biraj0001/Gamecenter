@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess The Numbers</title>
+    <link rel="icon"
+    href="./img/GuessTheNumber.png"
+    type="image/x-icon">
+</head>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Acme&family=Alegreya+Sans+SC:wght@300&family=Amatic+SC&family=Catamaran&family=Cinzel:wght@400;700&family=Comfortaa:wght@300;500&family=Dela+Gothic+One&family=Electrolize&family=Lunasima&family=Martian+Mono:wght@100&family=Noto+Sans&family=Nunito:wght@200&family=Open+Sans:ital,wght@1,500&family=Orbitron&family=PT+Sans:wght@700&family=Press+Start+2P&family=Quantico&family=Rajdhani:wght@300&family=Righteous&family=Roboto:wght@100&family=Rubik+Bubbles&family=Satisfy&display=swap" rel="stylesheet">
+<body>
+<div class="cool">
+    <div class="container">
+        <div class="top">
+            <a href="guessthenumber.html"><div class="play-again"><button><i class="bi bi-arrow-clockwise"></i> Play Again!</button></div></a>
+            <div class="description">Guess Between 1 to 20</div>
+        </div>
+        <div class="game-head">
+            <h1>Guess The Number!</h1>
+        </div>
+        <div class="gamearea">
+            <div class="left"></div>
+            <div class="mid"><i class="bi bi-question-octagon-fill"></i></div>
+            <div class="right"></div>
+        </div>
+    
+        <div class="input-area">
+            <div class="check">
+                <div class="inputbox">
+                    <input type="number" class="num-ip" placeholder="1...">
+                </div>
+                <div class="button">
+                    <button class="checkit"><i class="bi bi-patch-check-fill"></i> Check!</button>
+                </div>
+            </div>
+            <div class="comment">
+                <div class="level1">Start Guessing</div>
+                <div class="level2">Score ---</div>
+                <div class="level3">Turns ---</div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<link rel="stylesheet" href="gtn.css">
+</html>
+<script src="https://code.jquery.com/jquery-3.6.1.js"integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="crossorigin="anonymous"></script>
+<script>
+    let turn = 0;
+    let turnused = `<i class="bi bi-bar-chart-fill"></i> Turns Used : `+turn;
+    $(".level3").html(turnused);
+    var nums = [20,30,40,50,60,70,80];
+    let x  = Math.floor(Math.random() * 7);
+    console.log(nums[x]);
+    let upper = nums[x];
+    let t = "Guess Between 1 to " + nums[x];
+    let score = `<i class="bi bi-graph-up"></i> Score: `+nums[x];
+    $(".level2").html(score);
+    let scoreval = upper;
+    $(".description").html(t);
+    let hidden = Math.floor(Math.random() * upper)+1;
+    console.log(hidden);
+
+    $(".checkit").click(function(){
+        turn++;
+       if(turn<=20){
+        let x = $(".num-ip").val();
+        console.log(x);
+
+        if(x==hidden){
+            var congo = `<i class="bi bi-check2-circle"></i> Correct Guess!`;
+            $(".level1").html(congo);
+            $(".num-ip").prop('disabled', true);
+            $('.level1').css("color","green");
+            $('.level1').css("background-color","white");
+            $(".mid").html(x);
+            $(".mid").css("background-color","green");
+            $(".mid").css("padding","50px 50px");
+            $(".mid").css("height","100px");
+            $(".mid").css("font-size","100px");
+            $(".mid").css("width","15%");
+            $(".left").css("border","none");
+            $(".right").css("border","none");
+            $(".container").css("background-image",`url("https://t4.ftcdn.net/jpg/01/42/98/71/360_F_142987196_xEQ156rZO4QBrTJuAipTxjJY4eB9MCCA.jpg")`);
+            $(".game-head").html("Congratulations! You Guessed it Correctly.")
+            $(".game-head").css("background","none");
+            $(".mid").css("color","white");
+            $(".game-head").css("background-color","green");
+            $(".game-head").css("color","white");
+            $(".game-head").css("font-size","Bolder");
+            $(".inputbox").css("background-color","gray");
+            $('.cool').css("backgroundImage",`url(https://media.tenor.com/rM7pzUYwzyQAAAAC/glitter-stars.gif)`);
+            let turnused = `<i class="bi bi-bar-chart-fill"></i> Turns Used : `+turn;
+            $(".level3").html(turnused);
+        }
+        else if(hidden > 2*x){
+            var vlow = `<i class="bi bi-arrow-down-square-fill"></i> Very Low Guess!`;
+            $(".level1").html(vlow);
+            $('.level1').css("color","red");
+            $('.level1').css("background-color","white");
+            upper--;
+            let score = `<i class="bi bi-graph-up"></i> Score: `+ upper;
+            $(".level2").html(score);
+            let turnused = `<i class="bi bi-bar-chart-fill"></i> Turns Used : `+turn;
+            $(".level3").html(turnused);
+        }
+        else if(hidden > x){
+            var low = `<i class="bi bi-arrow-down-square"></i> Low Guess!`;
+            $(".level1").html(low);
+            $('.level1').css("color","red");
+            $('.level1').css("background-color","white");
+            upper--;
+            let score = `<i class="bi bi-graph-up"></i> Score: `+ upper;
+            $(".level2").html(score);
+            let turnused = `<i class="bi bi-bar-chart-fill"></i> Turns Used : `+turn;
+            $(".level3").html(turnused);
+        }
+        else if(2*hidden < x){
+            var vhigh = `<i class="bi bi-arrow-up-square-fill"></i> Very High Guess!`;
+            $(".level1").html(vhigh);
+            $('.level1').css("color","red");
+            $('.level1').css("background-color","white");
+            upper--;
+            let score = `<i class="bi bi-graph-up"></i> Score: `+ upper;
+            $(".level2").html(score);
+            let turnused = `<i class="bi bi-bar-chart-fill"></i> Turns Used : `+turn;
+            $(".level3").html(turnused);
+        }
+        else if(hidden < x){
+            var high = `<i class="bi bi-arrow-up-square"></i> High Guess!`;
+            $(".level1").html(high);
+            $('.level1').css("color","red");
+            $('.level1').css("background-color","white");
+            upper--;
+            let score = `<i class="bi bi-graph-up"></i> Score: `+ upper;
+            $(".level2").html(score);
+            let turnused = `<i class="bi bi-bar-chart-fill"></i> Turns Used : `+turn;
+            $(".level3").html(turnused);
+        }
+       }
+
+        if(turn>20){
+                $('.cool').css("backgroundImage",`url(https://64.media.tumblr.com/422e50afdda850d91cc3d61dcb92f816/tumblr_owt3jwUjhF1txe8seo1_500.gif)`);
+                $(".game-head").html("Oops! You Failed. Please Try Again.")
+                $(".game-head").css("background","none");
+                $(".game-head").css("background-color","red");
+                $(".game-head").css("color","white");
+                $(".num-ip").prop('disabled', true);
+                $('.level1').css("color","red");
+                $('.level1').css("background-color","white");
+                $(".mid").html(hidden);
+                $(".mid").css("background-color","red");
+                $(".left").css("border","none");
+                $(".right").css("border","none");
+                $(".container").css("background-image",`url("https://img.freepik.com/premium-photo/abstract-circular-red-background_8466-2.jpg")`);
+                let score = `<i class="bi bi-graph-up"></i> Score: 0`;
+                $(".level2").html(score);
+                $(".mid").css("padding","50px 50px");
+                $(".mid").css("height","100px");
+                $(".mid").css("font-size","100px");
+                $(".mid").css("width","15%");
+                $(".inputbox").css("background-color","gray");
+    }
+    })
+
+
+   
+</script>

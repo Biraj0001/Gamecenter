@@ -1,0 +1,211 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roll The Dice</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+</head>
+<link rel="icon"
+href="./img/Roll_The_Dice.png"
+type="image/x-icon">
+<body>
+    
+    <div class="game-container">
+        <div class="player1">
+            <div class="head1">Player 1</div>
+            <div class="Score-1">0</div>
+            <div class="current-score1">
+                <div class="top">CURRENT</div>
+                <div class="value-1">0</div>
+            </div>
+        </div>
+        <div class="greeting">
+            Congratulations!
+            <br>
+            Player 1 Wins.
+            <div class="scoreby">
+                Win by - 80 Points!
+            </div>
+        </div>
+        <div class="player2">
+            <div class="head2">Player 2</div>
+            <div class="Score-2">0</div>
+            <div class="current-score2">
+                <div class="top">CURRENT</div>
+                <div class="value-2">0</div>
+            </div>
+        </div>
+    </div>
+    <div class="buttonbox">
+      <a href="rollthedice.html"><div class="newgame"><button><i class="bi bi-arrow-clockwise"></i> New Game</button></div>
+        <div class="dicecontainer"></div></a>
+      <div class="rolldice"><button class="roll"><i class="bi bi-controller"></i> ROLL DICE</button></div>
+      <div class="hold"><button class="joystick"><i class="bi bi-joystick"></i> Hold</button></div>
+    </div>
+</body>
+<link rel="stylesheet" href="rtd.css">
+<script src="https://code.jquery.com/jquery-3.6.1.js"integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="crossorigin="anonymous"></script>
+<script>
+    // $(".rolldice").hide();
+    // $(".hold").hide();
+    // $(".dicecontainer").hide();
+    // $(".player1").hide();
+    // $(".player2").hide();
+    $(".greeting").hide();
+
+function active(turn){
+        if(turn == "p1"){
+            $(".head1").css("border-image",`conic-gradient(
+      from var(--angle),
+      #d53e33 0deg 90deg,
+      #fbb300 90deg 180deg,
+      #377af5 180deg 270deg,
+      #399953 270deg 360deg
+    )
+    1 stretch`)
+            $(".current-score1").css("border-image",`conic-gradient(
+      from var(--angle),
+      #d53e33 0deg 90deg,
+      #fbb300 90deg 180deg,
+      #377af5 180deg 270deg,
+      #399953 270deg 360deg
+    )
+    1 stretch`)
+    $(".head1").css("animation","rotate 4s linear infinite, opacityChange 3s infinite alternate")
+    $(".current-score1").css("animation","rotate 4s linear infinite, opacityChange 3s infinite alternate")
+    $(".head2").css("animation","none")
+    $(".head2").css("border-image","none")
+    $(".current-score2").css("animation","none")
+    $(".current-score2").css("border-image","none")
+        }
+        else{
+            $(".head2").css("border-image",`conic-gradient(
+      from var(--angle),
+      #d53e33 0deg 90deg,
+      #fbb300 90deg 180deg,
+      #377af5 180deg 270deg,
+      #399953 270deg 360deg
+    )
+    1 stretch`)
+    $(".current-score2").css("border-image",`conic-gradient(
+      from var(--angle),
+      #d53e33 0deg 90deg,
+      #fbb300 90deg 180deg,
+      #377af5 180deg 270deg,
+      #399953 270deg 360deg
+    )
+    1 stretch`)
+    $(".head2").css("animation","rotate 4s linear infinite, opacityChange 3s infinite alternate")
+    $(".current-score2").css("animation","rotate 4s linear infinite, opacityChange 3s infinite alternate")
+    $(".head1").css("animation","none")
+    $(".head1").css("border-image","none")
+    $(".current-score1").css("animation","none")
+    $(".current-score1").css("border-image","none")
+        }
+        }
+
+    let totalA = 0;
+    let totalB = 0;
+    let turn = "p1";
+    active("p1");
+    // active("p2");
+    
+    const diceside = {
+  1: "https://upload.wikimedia.org/wikipedia/commons/2/2c/Alea_1.png",
+  2: "https://upload.wikimedia.org/wikipedia/commons/b/b8/Alea_2.png",
+  3: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Alea_3.png",
+  4: "https://upload.wikimedia.org/wikipedia/commons/8/8d/Alea_4.png",
+  5: "https://upload.wikimedia.org/wikipedia/commons/5/55/Alea_5.png",
+  6: "https://upload.wikimedia.org/wikipedia/commons/f/f4/Alea_6.png",
+}
+
+var currentValue = [`<i class="bi bi-dice-1-fill"></i>`,`<i class="bi bi-dice-2-fill"></i>`,`<i class="bi bi-dice-3-fill"></i>`,`<i class="bi bi-dice-4-fill"></i>`,`<i class="bi bi-dice-5-fill"></i>`,`<i class="bi bi-dice-6-fill"></i>`];
+
+$(".roll").click(function(){
+    let x  = Math.floor(Math.random() * 6)+1;
+    setTimeout ( function(){
+        $(".dicecontainer").css("background-image",`url(${diceside[x]})`);
+    }, 600);
+    $(".dicecontainer").css("background-image",`url(./img/roll-the-dice.gif)`); 
+    if(turn == "p1"){
+        totalA+=x;
+        setTimeout ( function(){
+            if(x==1){
+            totalA --;
+            turn = "p2";
+            active("p2");
+        }
+
+        if(totalA>=100){
+            $(".rolldice").hide();
+            $(".hold").hide();
+            $(".dicecontainer").hide();
+            let diff = totalA-totalB;
+            let greet = ` Congratulations!
+            <br>
+            Player 1 Wins.
+            <div class="scoreby">
+                Win by - ${diff} Points!
+            </div>`;
+            $(".greeting").html(greet);
+            $(".greeting").show();
+            $(".game-container").css("backgroundImage",`url(https://media.tenor.com/rM7pzUYwzyQAAAAC/glitter-stars.gif)`);
+            $("body").css("backgroundImage",` url(https://cdn1.vectorstock.com/i/1000x1000/96/75/black-paper-cut-background-congratulation-vector-25929675.jpg)`);
+        }
+            $(".value-1").html(currentValue[x-1]);
+            $(".Score-1").html(totalA);
+            $(".value-1").css("font-size","36px");
+    }, 600);
+    $(".value-1").html("Rolling ...");
+    $(".value-1").css("font-size","17px");
+    }
+    else{
+        totalB+=x;
+        setTimeout ( function(){
+            if(x==1){
+            totalB --;
+            turn = "p1";
+            active("p1");
+        }
+        if(totalB>=100){
+            $(".rolldice").hide();
+            $(".hold").hide();
+            $(".dicecontainer").hide();
+            let diff = totalB-totalA;
+            let greet = ` Congratulations!
+            <br>
+            Player 2 Wins.
+            <div class="scoreby">
+                Win by - ${diff} Points!
+            </div>`;
+            $(".greeting").html(greet);
+            $(".greeting").show();
+            $(".game-container").css("backgroundImage",`url(https://media.tenor.com/rM7pzUYwzyQAAAAC/glitter-stars.gif)`);
+            $("body").css("backgroundImage",` url(https://cdn1.vectorstock.com/i/1000x1000/96/75/black-paper-cut-background-congratulation-vector-25929675.jpg)`);
+        }
+
+            $(".value-2").html(currentValue[x-1]);
+            $(".Score-2").html(totalB);
+            $(".value-2").css("font-size","36px");
+    }, 600);
+    $(".value-2").html("Rolling ...");
+    $(".value-2").css("font-size","17px");
+    }
+})
+
+$(".joystick").click(function(){
+    if(turn == "p1"){
+        turn = "p2";
+        active(turn);
+        $(".Score-1").html(totalA);
+    }
+    else {
+        turn ="p1" ;
+        active(turn);
+        $(".Score-2").html(totalB);
+    }
+})
+</script>
+</html>
